@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import {
   Brain,
   Type,
-  Sigma,
-  Globe2,
+  Flame,
   RotateCcw,
   Hand,
   type LucideIcon,
@@ -24,36 +23,28 @@ type Category = {
 
 const categories: Category[] = [
   {
-    id: "logic-legends",
-    title: "Logic Legends",
-    blurb: "Grids, chains and patterns that train your brain to spot what's next.",
-    icon: Brain,
-    gradient: "from-[#063797] to-[#1eaeea]",
-    gameIds: ["hidato", "sudoku-solver", "symmetric-pattern"],
-  },
-  {
     id: "word-wizards",
     title: "Word Wizards",
     blurb: "Scramble, unscramble and race to piece letters back together.",
     icon: Type,
     gradient: "from-[#1eaeea] to-[#0c2156]",
-    gameIds: ["anagram", "jigsaw", "matching"],
+    gameIds: ["anagram-letter-swap", "anagram-word-builder"],
   },
   {
-    id: "number-ninjas",
-    title: "Number Ninjas",
-    blurb: "Primes, speed rounds and grids built for quick-thinking minds.",
-    icon: Sigma,
+    id: "logic-legends",
+    title: "Logic Legends",
+    blurb: "Grids and patterns that train your brain to spot what's next.",
+    icon: Brain,
+    gradient: "from-[#063797] to-[#1eaeea]",
+    gameIds: ["symmetric-pattern", "sudoku"],
+  },
+  {
+    id: "danger-zone",
+    title: "Danger Zone",
+    blurb: "Dodge lava and defuse bombs in these quick-reflex challenges.",
+    icon: Flame,
     gradient: "from-[#ff6600] to-[#ed904a]",
-    gameIds: ["prime-time", "grid-race", "penalty-shootout"],
-  },
-  {
-    id: "world-explorers",
-    title: "World Explorers",
-    blurb: "Curated puzzle volumes and a globe-trotting guessing game.",
-    icon: Globe2,
-    gradient: "from-[#0c2156] to-[#ff6600]",
-    gameIds: ["country-selector", "logicoland-v4", "logicoland-v5"],
+    gameIds: ["knight", "arrow"],
   },
 ];
 
@@ -78,7 +69,7 @@ export default function DeckSection() {
             Pick your deck
           </span>
           <h2 className="font-playful text-4xl text-[var(--brand-navy)] sm:text-5xl">
-            Four decks. Ten games. Zero boring bits.
+            Three decks. Six games. Zero boring bits.
           </h2>
           <p className="mt-4 text-sm text-[var(--brand-navy)]/60 sm:text-base">
             Every game on Centre Point is sorted into a themed deck. Tap a

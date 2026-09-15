@@ -4,35 +4,23 @@ import { useRef, type MouseEvent } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import {
   ArrowUpRight,
-  Globe,
-  Grid3x3,
-  BookOpen,
-  Library,
   Shuffle,
-  LayoutGrid,
+  BookOpen,
   Shapes,
-  Puzzle,
-  Gauge,
-  Sigma,
-  VenusAndMars,
-  Goal,
+  LayoutGrid,
+  Flame,
+  Target,
   type LucideIcon,
 } from "lucide-react";
 import type { Game } from "@/lib/games";
 
 const icons: Record<Game["icon"], LucideIcon> = {
-  globe: Globe,
-  grid: Grid3x3,
-  book: BookOpen,
-  library: Library,
   shuffle: Shuffle,
-  "layout-grid": LayoutGrid,
+  book: BookOpen,
   shapes: Shapes,
-  puzzle: Puzzle,
-  gauge: Gauge,
-  sigma: Sigma,
-  "venus-mars": VenusAndMars,
-  goal: Goal,
+  "layout-grid": LayoutGrid,
+  flame: Flame,
+  target: Target,
 };
 
 export default function GameCard({ game, index }: { game: Game; index: number }) {

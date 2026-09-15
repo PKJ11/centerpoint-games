@@ -19,7 +19,7 @@ export default function Home() {
           <div className="animate-fade-in-up">
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--brand-blue)]/15 bg-white/70 px-4 py-1.5 text-xs font-semibold text-[var(--brand-blue)] backdrop-blur">
               <Trophy size={14} className="text-[var(--brand-orange)]" />
-              10 brain games waiting for you
+              6 brain games waiting for you
             </span>
 
             <h1 className="font-heading text-4xl font-semibold leading-[1.1] text-[var(--brand-navy)] sm:text-5xl lg:text-6xl">
@@ -50,7 +50,7 @@ export default function Home() {
             </div>
 
             <div className="mt-12 flex flex-wrap gap-3">
-              {games.slice(0, 6).map((g) => (
+              {games.map((g) => (
                 <span
                   key={g.id}
                   className="rounded-full border border-[var(--brand-blue)]/10 bg-white/60 px-3 py-1.5 text-[11px] font-medium text-[var(--brand-navy)]/70 backdrop-blur transition hover:border-[var(--brand-sky)]/40 hover:text-[var(--brand-blue)]"
@@ -58,9 +58,6 @@ export default function Home() {
                   {g.title}
                 </span>
               ))}
-              <span className="rounded-full border border-[var(--brand-blue)]/10 bg-white/60 px-3 py-1.5 text-[11px] font-medium text-[var(--brand-navy)]/70 backdrop-blur">
-                +{games.length - 6} more
-              </span>
             </div>
 
             <div className="animate-march-in mt-10 flex items-center gap-3">
@@ -76,13 +73,6 @@ export default function Home() {
           </div>
 
           <div className="relative flex justify-center lg:justify-end">
-            <img
-              src="/classroom-cheer.gif"
-              alt=""
-              aria-hidden
-              className="animate-float-slow pointer-events-none absolute -right-6 -top-10 hidden w-[380px] rounded-3xl object-cover opacity-90 shadow-[0_25px_60px_-15px_rgba(6,55,151,0.4)] sm:block sm:w-[420px]"
-              style={{ maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)" }}
-            />
             <LoginCard />
           </div>
         </div>
