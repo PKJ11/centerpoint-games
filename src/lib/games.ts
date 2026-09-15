@@ -79,7 +79,7 @@ export const games: Game[] = [
     id: "symmetric-pattern",
     title: "Symmetric Pattern",
     description: "Spot and complete mirrored patterns to train your visual reasoning.",
-    href: "https://www.logicology.in/logicoland",
+    href: "https://www.logicology.in/books/symmetrypattern",
     icon: "shapes",
     gradient: "from-[#0c2156] to-[#ff6600]",
     tag: "Visual",
