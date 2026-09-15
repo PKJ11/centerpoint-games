@@ -37,7 +37,7 @@ const categories: Category[] = [
     blurb: "Scramble, unscramble and race to piece letters back together.",
     icon: Type,
     gradient: "from-[#1eaeea] to-[#0c2156]",
-    gameIds: ["anagram", "jigsaw"],
+    gameIds: ["anagram", "jigsaw", "matching"],
   },
   {
     id: "number-ninjas",

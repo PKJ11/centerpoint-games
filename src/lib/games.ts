@@ -13,7 +13,8 @@ export type Game = {
     | "shapes"
     | "puzzle"
     | "gauge"
-    | "sigma";
+    | "sigma"
+    | "venus-mars";
   gradient: string;
   tag: string;
 };
@@ -99,6 +100,15 @@ export const games: Game[] = [
     icon: "gauge",
     gradient: "from-[#1eaeea] to-[#ed904a]",
     tag: "Speed",
+  },
+  {
+    id: "matching",
+    title: "Matching",
+    description: "Sort words into their matching pairs at speed in this quick-fire classification game.",
+    href: "https://www.logicology.in/MasculineFeminineGame",
+    icon: "venus-mars",
+    gradient: "from-[#ed904a] to-[#1eaeea]",
+    tag: "Word Game",
   },
   {
     id: "prime-time",

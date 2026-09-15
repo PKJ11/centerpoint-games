@@ -14,6 +14,7 @@ import {
   Puzzle,
   Gauge,
   Sigma,
+  VenusAndMars,
   type LucideIcon,
 } from "lucide-react";
 import type { Game } from "@/lib/games";
@@ -29,6 +30,7 @@ const icons: Record<Game["icon"], LucideIcon> = {
   puzzle: Puzzle,
   gauge: Gauge,
   sigma: Sigma,
+  "venus-mars": VenusAndMars,
 };
 
 export default function GameCard({ game, index }: { game: Game; index: number }) {
