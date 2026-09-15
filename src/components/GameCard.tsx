@@ -15,6 +15,7 @@ import {
   Gauge,
   Sigma,
   VenusAndMars,
+  Goal,
   type LucideIcon,
 } from "lucide-react";
 import type { Game } from "@/lib/games";
@@ -31,6 +32,7 @@ const icons: Record<Game["icon"], LucideIcon> = {
   gauge: Gauge,
   sigma: Sigma,
   "venus-mars": VenusAndMars,
+  goal: Goal,
 };
 
 export default function GameCard({ game, index }: { game: Game; index: number }) {

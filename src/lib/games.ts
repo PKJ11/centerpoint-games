@@ -14,7 +14,8 @@ export type Game = {
     | "puzzle"
     | "gauge"
     | "sigma"
-    | "venus-mars";
+    | "venus-mars"
+    | "goal";
   gradient: string;
   tag: string;
 };
@@ -118,5 +119,14 @@ export const games: Game[] = [
     icon: "sigma",
     gradient: "from-[#063797] to-[#ed904a]",
     tag: "Numbers",
+  },
+  {
+    id: "penalty-shootout",
+    title: "Penalty Shootout",
+    description: "Answer fast to line up your shot and slot it past the keeper for the win.",
+    href: "https://www.logicology.in/footballgame",
+    icon: "goal",
+    gradient: "from-[#1eaeea] to-[#ff6600]",
+    tag: "Speed",
   },
 ];

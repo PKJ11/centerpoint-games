@@ -45,7 +45,7 @@ const categories: Category[] = [
     blurb: "Primes, speed rounds and grids built for quick-thinking minds.",
     icon: Sigma,
     gradient: "from-[#ff6600] to-[#ed904a]",
-    gameIds: ["prime-time", "grid-race"],
+    gameIds: ["prime-time", "grid-race", "penalty-shootout"],
   },
   {
     id: "world-explorers",
