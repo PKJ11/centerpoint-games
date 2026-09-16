@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef, type MouseEvent } from "react";
+import { useRef, type MouseEvent as ReactMouseEvent } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import {
   ArrowUpRight,
+  Clock,
   Shuffle,
   BookOpen,
   Shapes,
@@ -24,8 +25,9 @@ const icons: Record<Game["icon"], LucideIcon> = {
 };
 
 export default function GameCard({ game, index }: { game: Game; index: number }) {
-  const ref = useRef<HTMLAnchorElement>(null);
+  const ref = useRef<HTMLDivElement & HTMLAnchorElement>(null);
   const Icon = icons[game.icon];
+  const comingSoon = !!game.comingSoon;
 
   const mx = useMotionValue(0.5);
   const my = useMotionValue(0.5);
@@ -40,7 +42,7 @@ export default function GameCard({ game, index }: { game: Game; index: number })
   const glowX = useTransform(mx, (v) => `${v * 100}%`);
   const glowY = useTransform(my, (v) => `${v * 100}%`);
 
-  function handleMouseMove(e: MouseEvent<HTMLAnchorElement>) {
+  function handleMouseMove(e: ReactMouseEvent<HTMLDivElement & HTMLAnchorElement>) {
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     mx.set((e.clientX - rect.left) / rect.width);
@@ -52,12 +54,14 @@ export default function GameCard({ game, index }: { game: Game; index: number })
     my.set(0.5);
   }
 
+  const Wrapper = comingSoon ? motion.div : motion.a;
+
   return (
-    <motion.a
+    <Wrapper
       ref={ref}
-      href={game.href}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...(comingSoon
+        ? {}
+        : { href: game.href, target: "_blank", rel: "noopener noreferrer" })}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 50 }}
@@ -65,7 +69,9 @@ export default function GameCard({ game, index }: { game: Game; index: number })
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: (index % 5) * 0.08, ease: [0.16, 1, 0.3, 1] }}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d", perspective: 800 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/60 bg-white/80 p-6 shadow-[0_10px_30px_-15px_rgba(6,55,151,0.3)] backdrop-blur-sm transition-shadow hover:shadow-[0_25px_50px_-15px_rgba(6,55,151,0.45)]"
+      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/60 bg-white/80 p-6 shadow-[0_10px_30px_-15px_rgba(6,55,151,0.3)] backdrop-blur-sm transition-shadow hover:shadow-[0_25px_50px_-15px_rgba(6,55,151,0.45)] ${
+        comingSoon ? "cursor-default opacity-90" : ""
+      }`}
     >
       <motion.div
         aria-hidden
@@ -78,6 +84,13 @@ export default function GameCard({ game, index }: { game: Game; index: number })
           ),
         }}
       />
+
+      {comingSoon && (
+        <span className="absolute right-4 top-4 z-10 inline-flex items-center gap-1 rounded-full bg-[var(--brand-navy)] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white shadow-md">
+          <Clock size={11} />
+          Coming soon
+        </span>
+      )}
 
       <div
         style={{ transform: "translateZ(40px)" }}
@@ -107,16 +120,25 @@ export default function GameCard({ game, index }: { game: Game; index: number })
         {game.description}
       </p>
 
-      <div
-        style={{ transform: "translateZ(30px)" }}
-        className="flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-blue)]"
-      >
-        Play now
-        <ArrowUpRight
-          size={16}
-          className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-        />
-      </div>
-    </motion.a>
+      {comingSoon ? (
+        <div
+          style={{ transform: "translateZ(30px)" }}
+          className="flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-navy)]/40"
+        >
+          Coming soon
+        </div>
+      ) : (
+        <div
+          style={{ transform: "translateZ(30px)" }}
+          className="flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-blue)]"
+        >
+          Play now
+          <ArrowUpRight
+            size={16}
+            className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+          />
+        </div>
+      )}
+    </Wrapper>
   );
 }

@@ -12,6 +12,7 @@ export type Game = {
     | "target";
   gradient: string;
   tag: string;
+  comingSoon?: boolean;
 };
 
 export const games: Game[] = [
@@ -59,6 +60,7 @@ export const games: Game[] = [
     icon: "flame",
     gradient: "from-[#ff6600] to-[#ed904a]",
     tag: "Lava Game",
+    comingSoon: true,
   },
   {
     id: "arrow",
@@ -68,5 +70,6 @@ export const games: Game[] = [
     icon: "target",
     gradient: "from-[#ed904a] to-[#1eaeea]",
     tag: "Bomb Detection",
+    comingSoon: true,
   },
 ];
